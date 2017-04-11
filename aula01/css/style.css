@@ -1,0 +1,11 @@
+/* Estilo para monitoria de TEC WEB II */
+
+.active{
+	color: blue;
+}
+.sucesso{
+	color: green;
+}
+.erro{
+	color: red;
+}

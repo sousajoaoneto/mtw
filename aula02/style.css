@@ -1,0 +1,92 @@
+@import "css/font-awesome.css";
+@import "css/font-awesome.min.css";
+
+html, body {
+    margin: 0;
+}
+ul{
+    margin: 0;
+}
+a{
+    text-decoration: none;
+}
+.loading{
+    width: 200px;
+    height: 50px;
+    background: mediumturquoise;
+    border: 1px solid #000;
+    text-align: center;
+    position: fixed;
+    margin-left: calc(50% - 100px);
+    display: none;
+}
+header.main-header{
+    width: 100%;
+    min-height: 250px;
+    background: rgba(151, 212, 153, .8);
+}
+.header-content {
+    height: 200px;
+    background: #ccc;
+}
+nav.nav-header {
+    height: 50px;
+    padding: 0px 5px;
+    background: #1FAE66;
+}
+.menu{
+}
+.menu > li{
+    display: inline-block;
+    padding: 5px;
+    height: calc(100% - 10px);
+    font-size: 22px;
+    line-height: 37px;
+    border-bottom: 3px solid transparent;
+}
+.menu > li:hover, .menu > li.selected {
+    border-bottom: 3px solid #F89C2C;
+}
+.menu > li a{
+    color: #fff;
+}
+.menu > li > a{
+    padding: 5px 18px;
+    border-radius: 3px;
+}
+ul.sub-menu {
+    padding: 0px 18px;
+    margin: 5px 0;
+    position: absolute;
+    background: #1FAE66;
+    border-top: 1px solid rgba(70, 70, 70, 0.24);
+    margin-left: -5px;
+    display: none;
+	min-width: 90px;
+}
+.active ul.sub-menu {
+    /*display: block;*/
+}
+.sub-menu > li{
+    display: block;
+}
+li.menu-item.dropdown > a:after {
+    content: "\f107";
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #fff;
+    position: relative;
+    left: 6px;
+    top: 2px;
+}
+section#page-content{
+    padding: 13px;
+    min-height: 300px;
+}
+
+footer{
+    min-height: 117px;
+}

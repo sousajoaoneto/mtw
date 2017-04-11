@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<title>Usando GET, POST e FILE</title>
+<link href="css/style.css" rel="stylesheet" />
+
+<script src="../js/jquery.js"></script>
+<script src="js/script.js"></script>
+</head>
+<body>
+		
+	<form method="POST" enctype="multipart/form-data" action="enviar.php" id="form1">		
+		<fieldset class="grupo campoPasta">
+			<legend id="legenda1">Nome da pasta de destino</legend>
+			<input type="text" name="pasta" id="pasta" required/>
+		</fieldset>
+		<fieldset class="grupo campoPasta">
+			<legend id="legenda1">Arquivo para upload</legend>
+			<input type="file" name="arquivo" id="arquivo" required/>
+		</fieldset>
+		
+		<input type="submit" value="Enviar" />
+	</form>
+	
+</body>
+</html>
