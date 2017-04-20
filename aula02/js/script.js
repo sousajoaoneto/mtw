@@ -2,7 +2,7 @@
  * Created by Joao Sousa on 16/10/2015.
  */
 var load = function(href, target){
-        $('.loading').fadeIn();
+       $('.loading').fadeIn();
         setTimeout(function(){
             $.get(href,function(data){
                 $(target).html(data);
@@ -11,7 +11,7 @@ var load = function(href, target){
             }).always(function(){
                 $('.loading').fadeOut();
             });
-        },1000);
+        },1000); 
 };
 $(document).ready(function(){
 	load('page/home.html','#page-content');
