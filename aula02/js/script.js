@@ -51,6 +51,21 @@ $(document).ready(function(){
        return false;
     });
 	
-	
+	//obter CEP com o input de contato
+	$('#page-content').on('blur','input[name=cep]',function(){
+			$('.loading').fadeIn();
+			$.get('http://viacep.com.br/ws/'+this.value+'/json',function(res){
+				console.log(res);
+				$('output[name=logradouro]').text(res.logradouro);
+				$('output[name=complemento]').text(res.complemento);
+				$('output[name=bairro]').text(res.bairro);
+				$('output[name=localidade]').text(res.localidade);
+				$('output[name=uf]').text(res.uf);
+			}).fail(function(){
+				alert('Não foi possível verificar o CEP indicado!');
+			}).always(function(data){
+				$('.loading').fadeOut();
+			});        
+	});	
 	
 });
