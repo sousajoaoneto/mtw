@@ -1,5 +1,5 @@
 <?php
-	if(isset($_POST['pasta']) && $_POST['pasta']){
+	if(isset($_POST['pasta']) && $_POST['pasta'] != ""){
 		
 		$pasta_dir = $_POST["pasta"];
 		$file = $_FILES["arquivo"];

@@ -17,26 +17,40 @@ $(document).ready(function(){
 	load('page/home.html','#page-content');
 	
     //adicionando classe dropdown aos menus com submenus
-    $('.menu>.menu-item').children('.sub-menu').closest('.menu-item').addClass('dropdown');
-
+    //# seletor do menu-item para adicionar a classe dropdown a todos os que contem um sub-menu
+	//# utilizando as funções .closest() e addClass
+	$('.sub-menu').closest('.menu-item').addClass('dropdown');
+	
+	
+	//usando o dropdown
+	//classes selected
     $(".dropdown").on("click", function(){
-        var item = $(this);
-        //removendo a classe selected dos itens do menu
-        //nao retira do item atual se existir
-        $(".menu-item").not(item).removeClass("selected");
-        //adiciona a classe selected se o item nao estava selecionado antes
-        item.addClass("selected");
+        //recuperar o elemento dropdown
+		var dropdown = $(this);
+                        
         //recolhe todos os sub-menus menos o item atual
-        $(".menu-item").not(item).children(".sub-menu").slideUp("slow");
+		//# utilizando .not(), .children() e slideUp()
+        $('dropdown').not(this).children('.sub-menu').slideUp();
+		
         //abre ou recolhe o sub-menu do item atual dependendo do estado atual dele(aberto/fechado)
-        item.children(".sub-menu").slideToggle("slow");
+		//# utilizando .children() e .slideToggle()
+        dropdown.children('.sub-menu').slideToggle();
+		
 		return false;
     });
     $('.menu-item').not(".dropdown").on('click','a',function() {
-       var href = $(this).attr('href');
+       var item = $(this).closest('.menu-item');
+	   $('.menu-item').removeClass('selected');
+	   item.addClass('selected');
+	   
+	   var href = $(this).attr('href');
 	   if(href=='#')return false;
        load(href, '#page-content');
 	   $(".sub-menu").slideUp("slow");
+	   
        return false;
     });
+	
+	
+	
 });
