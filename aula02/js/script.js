@@ -53,8 +53,12 @@ $(document).ready(function(){
 	
 	//obter CEP com o input de contato
 	$('#page-content').on('blur','input[name=cep]',function(){
-			$('.loading').fadeIn();
-			$.get('http://viacep.com.br/ws/'+this.value+'/json',function(res){
+			var cep = this.value;
+			//se cep não conter 8 digitos a função é executada
+			if( cep.length < 8 ) return false;
+			
+			$('.loading').fadeIn();			
+			$.get('http://viacep.com.br/ws/'+cep+'/json',function(res){
 				console.log(res);
 				$('output[name=logradouro]').text(res.logradouro);
 				$('output[name=complemento]').text(res.complemento);
