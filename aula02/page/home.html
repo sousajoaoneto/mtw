@@ -5,3 +5,17 @@
     Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Nulla porttitor accumsan tincidunt.
     Pellentesque in ipsum id orci porta dapibus. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.
 </p>
+
+<form id="form-recado" method="POST" action="php/salvar.php">
+	<p id="resposta" style="display:none"></p>
+	<p>
+		<input type="text" name="nome" id="nome" placeholder="Digite seu nome" required />
+	</p>
+	<p>
+		<input type="text" name="email" id="email" placeholder="Digite seu e-mail" required  />
+	</p>
+	<p>
+		<textarea type="text" name="mensagem" id="mensagem" placeholder="Mensagem" required ></textarea>
+	</p>
+	<button type="submit" id="form-enviar">Enviar</button>
+</form>

@@ -28,17 +28,16 @@ function test_function(){
 function send_message(){
     $data = date("d/m/Y");
 
-    $name = $_POST["name"];
-    $email = $_POST["email"];
-    $msg = $_POST["message"];
+    //obter dados do post
 
     $return = array();
 
 	//criar um arquivo .txt e salvar em um diretório para simular o salvamento/envio de uma mensagem
 	
 	//testar se o arquivo foi salvo
-    if( salved ){
+    if( true ){
         $return["error"] = "0";
+        $return["codigo"] = "valor";
     }else {
         $return["error"] = "1";
     }

@@ -72,4 +72,46 @@ $(document).ready(function(){
 			});        
 	});	
 	
+	//enviando recado usando ajax
+	$('#page-content').on('submit','#form-recado',function(e){
+		e.preventDefault(); //previne o envio padrão de dados no submit
+	});
+	//evento do clique no botão enviar do formulario
+	$('#page-content').on('click','#form-enviar',function(){
+		var data = {
+			"action": "send_message"
+		};
+		var form = $("#form-recado");
+		data = form.serialize() + "&" + $.param(data);
+		console.log(data);
+		var action = form.attr('action');
+		$.ajax({
+			type: "POST",
+			url: action,
+			data: data,
+			cache: false,
+			dataType: "json",
+			complete: function () {
+				
+			},
+			success: function (resp) {
+				console.log(resp);				
+				//mostrar mensagem de sucesso ou erro em algum lugar do formulário
+				//o erro no escopo de sucesso é tratado manualmente e pode não ter referencia com o ajax
+				if( resp.error == 0 ){
+					//limpar dados do formulário
+					form.find("input, textarea").val("");
+					$('#resposta').text('Seu recado foi enviado com sucesso').fadeIn();
+				}else{
+					$('#resposta').text('Ocorreu um erro ao enviar seu recado. Tente novamente mais tarde.').fadeIn();
+				}
+			},
+			error: function (resp) {
+				//mostrar mensagem de erro em algum lugar do formulário
+				//erro com o ajax, action, ou erro geral no php
+				$('#resposta').text('Ocorreu um erro ao enviar seu recado. Tente novamente mais tarde.').fadeIn();
+			}
+		});
+	});
+	
 });
